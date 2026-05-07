@@ -22,7 +22,7 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       padding: 32px;
       width: 100%;
-      max-width: 480px;
+      max-width: 520px;
       height: fit-content;
     }
 
@@ -36,8 +36,7 @@
 
     input[type="email"],
     input[type="password"],
-    input[type="text"],
-    input[type="number"] {
+    input[type="text"] {
       width: 100%;
       padding: 10px 14px;
       border: 2px solid #e0e0e0;
@@ -69,16 +68,7 @@
       margin-top: 20px;
       transition: background 0.2s;
     }
-
     .btn:hover { background: #574fd6; }
-    .btn:disabled { background: #b0acf0; cursor: not-allowed; }
-
-    .btn-ghost {
-      background: none;
-      color: #6c63ff;
-      border: 2px solid #6c63ff;
-    }
-    .btn-ghost:hover { background: #f3f2ff; }
 
     .link-btn {
       background: none;
@@ -93,144 +83,138 @@
     .center { text-align: center; margin-top: 16px; font-size: 0.88rem; color: #888; }
 
     .error-msg {
-      background: #fff0f0;
-      color: #c0392b;
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 0.85rem;
-      margin-top: 12px;
-      display: none;
+      background: #fff0f0; color: #c0392b;
+      border-radius: 8px; padding: 10px 14px;
+      font-size: 0.85rem; margin-top: 12px; display: none;
     }
 
-    .success-msg {
-      background: #f0fff4;
-      color: #27ae60;
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 0.85rem;
-      margin-top: 12px;
-      display: none;
-    }
-
-    /* Todo screen */
+    /* ── Top bar ── */
     .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
+      display: flex; justify-content: space-between;
+      align-items: center; margin-bottom: 20px;
     }
+    .topbar h1 { margin-bottom: 0; font-size: 1.3rem; }
+    .user-email { font-size: 0.8rem; color: #999; max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .logout-btn { background: none; border: none; color: #e74c3c; cursor: pointer; font-size: 0.82rem; }
 
-    .topbar .user-email { font-size: 0.8rem; color: #999; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
-    .topbar .logout-btn {
-      background: none;
-      border: none;
-      color: #e74c3c;
-      cursor: pointer;
-      font-size: 0.82rem;
+    /* ── Tabs ── */
+    .tabs { display: flex; border-bottom: 2px solid #f0f0f0; margin-bottom: 20px; }
+    .tab-btn {
+      flex: 1; background: none; border: none; padding: 10px;
+      font-size: 0.9rem; color: #888; cursor: pointer; border-bottom: 2px solid transparent;
+      margin-bottom: -2px; transition: all 0.2s;
     }
+    .tab-btn.active { color: #6c63ff; border-bottom-color: #6c63ff; font-weight: 600; }
 
-    .input-row { display: flex; gap: 8px; margin-bottom: 20px; }
-
-    .input-row input {
-      flex: 1;
-      padding: 10px 14px;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      outline: none;
-      margin-top: 0;
+    /* ── Add todo row ── */
+    .add-row { display: flex; gap: 8px; margin-bottom: 16px; }
+    .add-row input {
+      flex: 1; padding: 10px 14px;
+      border: 2px solid #e0e0e0; border-radius: 8px;
+      font-size: 0.95rem; outline: none; margin-top: 0;
     }
-
-    .input-row input:focus { border-color: #6c63ff; }
-
-    .input-row button {
-      padding: 10px 18px;
-      background: #6c63ff;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: background 0.2s;
+    .add-row input:focus { border-color: #6c63ff; }
+    .add-row select {
+      padding: 10px 10px;
+      border: 2px solid #e0e0e0; border-radius: 8px;
+      font-size: 0.85rem; outline: none; color: #555;
+      background: #fff; cursor: pointer; max-width: 130px;
     }
-
-    .input-row button:hover { background: #574fd6; }
-
-    .filters { display: flex; gap: 6px; margin-bottom: 16px; }
-
-    .filters button {
-      flex: 1;
-      padding: 7px;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      background: #fff;
-      font-size: 0.85rem;
-      cursor: pointer;
-      color: #555;
-      transition: all 0.2s;
+    .add-row select:focus { border-color: #6c63ff; }
+    .add-row button {
+      padding: 10px 16px; background: #6c63ff;
+      color: #fff; border: none; border-radius: 8px;
+      font-size: 1.2rem; cursor: pointer; transition: background 0.2s;
     }
+    .add-row button:hover { background: #574fd6; }
 
-    .filters button.active { background: #6c63ff; border-color: #6c63ff; color: #fff; }
+    /* ── Filters ── */
+    .filters { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+    .filter-btn {
+      padding: 5px 12px; border: 2px solid #e0e0e0;
+      border-radius: 20px; background: #fff;
+      font-size: 0.82rem; cursor: pointer; color: #555;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .filter-btn.active { color: #fff; border-color: transparent; }
 
+    /* ── Todo list ── */
     ul { list-style: none; }
-
     li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 10px;
-      border-bottom: 1px solid #f0f0f0;
+      display: flex; align-items: center; gap: 10px;
+      padding: 11px 8px; border-bottom: 1px solid #f0f0f0;
       transition: background 0.15s;
     }
-
     li:hover { background: #fafafa; }
-
     li input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      accent-color: #6c63ff;
-      cursor: pointer;
+      width: 17px; height: 17px;
+      accent-color: #6c63ff; cursor: pointer; flex-shrink: 0;
+    }
+    li .todo-text { flex: 1; font-size: 0.93rem; color: #333; word-break: break-word; }
+    li.done .todo-text { text-decoration: line-through; color: #aaa; }
+    li .delete-btn {
+      background: none; border: none; color: #ccc;
+      font-size: 1rem; cursor: pointer; padding: 2px 6px;
+      border-radius: 4px; transition: color 0.2s; flex-shrink: 0;
+    }
+    li .delete-btn:hover { color: #e74c3c; }
+
+    /* ── Tag pill ── */
+    .tag-pill {
+      display: inline-block; padding: 2px 8px;
+      border-radius: 12px; font-size: 0.74rem;
+      font-weight: 600; color: #fff; white-space: nowrap;
       flex-shrink: 0;
     }
 
-    li span { flex: 1; font-size: 0.95rem; color: #333; word-break: break-word; }
-    li.done span { text-decoration: line-through; color: #aaa; }
-
-    li button.delete {
-      background: none;
-      border: none;
-      color: #ccc;
-      font-size: 1.1rem;
-      cursor: pointer;
-      padding: 2px 6px;
-      border-radius: 4px;
-      transition: color 0.2s;
-    }
-
-    li button.delete:hover { color: #e74c3c; }
-
+    /* ── Footer ── */
     .footer {
-      margin-top: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.82rem;
-      color: #999;
+      margin-top: 14px; display: flex;
+      justify-content: space-between; align-items: center;
+      font-size: 0.82rem; color: #999;
     }
-
     .footer button {
-      background: none;
-      border: none;
-      color: #e74c3c;
-      cursor: pointer;
-      font-size: 0.82rem;
+      background: none; border: none; color: #e74c3c;
+      cursor: pointer; font-size: 0.82rem;
     }
-
     .footer button:hover { text-decoration: underline; }
 
     .empty { text-align: center; color: #bbb; padding: 24px 0; font-size: 0.9rem; }
     .loading { text-align: center; color: #aaa; padding: 24px 0; font-size: 0.9rem; }
+
+    /* ── Categories tab ── */
+    .cat-add-row { display: flex; gap: 8px; margin-bottom: 20px; align-items: center; }
+    .cat-add-row input {
+      flex: 1; padding: 10px 14px;
+      border: 2px solid #e0e0e0; border-radius: 8px;
+      font-size: 0.95rem; outline: none; margin-top: 0;
+    }
+    .cat-add-row input:focus { border-color: #6c63ff; }
+    .cat-add-row input[type="color"] {
+      width: 44px; height: 42px; padding: 2px;
+      border-radius: 8px; cursor: pointer; flex-shrink: 0;
+    }
+    .cat-add-row button {
+      padding: 10px 16px; background: #6c63ff;
+      color: #fff; border: none; border-radius: 8px;
+      font-size: 0.95rem; cursor: pointer; white-space: nowrap;
+    }
+    .cat-add-row button:hover { background: #574fd6; }
+
+    .cat-list { list-style: none; }
+    .cat-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 11px 8px; border-bottom: 1px solid #f0f0f0;
+    }
+    .cat-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+    .cat-name { flex: 1; font-size: 0.93rem; color: #333; }
+    .cat-count { font-size: 0.8rem; color: #aaa; }
+    .cat-delete {
+      background: none; border: none; color: #ccc;
+      font-size: 1rem; cursor: pointer; padding: 2px 6px;
+      border-radius: 4px; transition: color 0.2s;
+    }
+    .cat-delete:hover { color: #e74c3c; }
 
     .otp-hint { font-size: 0.82rem; color: #888; margin-top: 8px; text-align: center; }
     .resend-row { text-align: center; margin-top: 12px; font-size: 0.85rem; color: #888; }
@@ -239,7 +223,7 @@
 <body>
 <div class="container">
 
-  <!-- KAYIT EKRANI -->
+  <!-- KAYIT -->
   <div class="screen active" id="screen-register">
     <h1>Hesap Oluştur</h1>
     <h2>Todo uygulamasına hoş geldiniz</h2>
@@ -254,7 +238,7 @@
     <div class="center">Hesabınız var mı? <button class="link-btn" onclick="showScreen('screen-login')">Giriş Yap</button></div>
   </div>
 
-  <!-- OTP DOĞRULAMA EKRANI -->
+  <!-- OTP -->
   <div class="screen" id="screen-otp">
     <h1>E-posta Doğrulama</h1>
     <h2 id="otp-subtitle">E-postanıza gönderilen 6 haneli kodu girin</h2>
@@ -263,13 +247,10 @@
     <p class="otp-hint">Kod 10 dakika geçerlidir.</p>
     <div class="error-msg" id="otp-error"></div>
     <button class="btn" onclick="verifyOtp()">Doğrula</button>
-    <div class="resend-row">
-      Kod gelmedi mi?
-      <button class="link-btn" onclick="resendOtp()">Tekrar Gönder</button>
-    </div>
+    <div class="resend-row">Kod gelmedi mi? <button class="link-btn" onclick="resendOtp()">Tekrar Gönder</button></div>
   </div>
 
-  <!-- GİRİŞ EKRANI -->
+  <!-- GİRİŞ -->
   <div class="screen" id="screen-login">
     <h1>Giriş Yap</h1>
     <h2>Hesabınıza giriş yapın</h2>
@@ -278,34 +259,59 @@
     <label>Şifre</label>
     <input type="password" id="login-password" placeholder="Şifreniz">
     <div class="error-msg" id="login-error"></div>
-    <div class="success-msg" id="login-success"></div>
     <button class="btn" onclick="login()">Giriş Yap</button>
     <div class="center">Hesabınız yok mu? <button class="link-btn" onclick="showScreen('screen-register')">Kayıt Ol</button></div>
   </div>
 
-  <!-- TODO EKRANI -->
-  <div class="screen" id="screen-todo">
+  <!-- ANA UYGULAMA -->
+  <div class="screen" id="screen-app">
     <div class="topbar">
-      <h1 style="margin-bottom:0;font-size:1.3rem;">Yapılacaklar</h1>
+      <h1>Yapılacaklar</h1>
       <div style="text-align:right;">
         <div class="user-email" id="user-email-label"></div>
         <button class="logout-btn" onclick="logout()">Çıkış Yap</button>
       </div>
     </div>
-    <div class="error-msg" id="todo-error"></div>
-    <div class="input-row">
-      <input type="text" id="todoInput" placeholder="Yeni görev ekle..." maxlength="120">
-      <button onclick="addTodo()">+</button>
+
+    <div class="tabs">
+      <button class="tab-btn active" id="tab-todos" onclick="switchTab('todos')">Görevler</button>
+      <button class="tab-btn" id="tab-cats" onclick="switchTab('cats')">Kategoriler</button>
     </div>
-    <div class="filters">
-      <button class="active" onclick="setFilter('all', this)">Tümü</button>
-      <button onclick="setFilter('active', this)">Aktif</button>
-      <button onclick="setFilter('done', this)">Tamamlanan</button>
+
+    <!-- GÖREVLER -->
+    <div id="panel-todos">
+      <div class="error-msg" id="todo-error"></div>
+      <div class="add-row">
+        <input type="text" id="todoInput" placeholder="Yeni görev ekle..." maxlength="120">
+        <select id="todo-cat-select">
+          <option value="">Kategori yok</option>
+        </select>
+        <button onclick="addTodo()">+</button>
+      </div>
+      <div class="filters" id="cat-filters">
+        <button class="filter-btn active" style="background:#6c63ff;color:#fff;border-color:#6c63ff;" onclick="setCatFilter(null, this)">Tümü</button>
+      </div>
+      <div class="filters">
+        <button class="filter-btn active" id="f-all" onclick="setStatusFilter('all', this)">Hepsi</button>
+        <button class="filter-btn" id="f-active" onclick="setStatusFilter('active', this)">Aktif</button>
+        <button class="filter-btn" id="f-done" onclick="setStatusFilter('done', this)">Tamamlanan</button>
+      </div>
+      <ul id="todoList"><li class="loading">Yükleniyor...</li></ul>
+      <div class="footer">
+        <span id="countLabel"></span>
+        <button onclick="clearDone()">Tamamlananları sil</button>
+      </div>
     </div>
-    <ul id="todoList"><li class="loading">Yükleniyor...</li></ul>
-    <div class="footer">
-      <span id="countLabel"></span>
-      <button onclick="clearDone()">Tamamlananları sil</button>
+
+    <!-- KATEGORİLER -->
+    <div id="panel-cats" style="display:none;">
+      <div class="error-msg" id="cat-error"></div>
+      <div class="cat-add-row">
+        <input type="text" id="cat-name-input" placeholder="Kategori adı" maxlength="40">
+        <input type="color" id="cat-color-input" value="#6c63ff" title="Renk seç">
+        <button onclick="addCategory()">Ekle</button>
+      </div>
+      <ul class="cat-list" id="catList"><li class="loading">Yükleniyor...</li></ul>
     </div>
   </div>
 
@@ -317,30 +323,25 @@
 
   let session = null;
   let todos = [];
-  let filter = 'all';
+  let categories = [];
+  let statusFilter = 'all';
+  let catFilter = null;
   let pendingEmail = '';
 
-  // ── Auth helpers ──────────────────────────────────────────────
+  // ── Helpers ──────────────────────────────────────────────────
 
-  function authHeaders(token) {
-    return {
-      'apikey': ANON_KEY,
-      'Authorization': `Bearer ${token || ANON_KEY}`,
-      'Content-Type': 'application/json'
-    };
+  function anonH() {
+    return { 'apikey': ANON_KEY, 'Authorization': `Bearer ${ANON_KEY}`, 'Content-Type': 'application/json' };
+  }
+
+  function authH(extra) {
+    return { 'apikey': ANON_KEY, 'Authorization': `Bearer ${session.access_token}`, 'Content-Type': 'application/json', 'Prefer': 'return=representation', ...extra };
   }
 
   function saveSession(s) {
     session = s;
-    if (s) localStorage.setItem('sb_session', JSON.stringify(s));
-    else localStorage.removeItem('sb_session');
+    s ? localStorage.setItem('sb_session', JSON.stringify(s)) : localStorage.removeItem('sb_session');
   }
-
-  function loadSession() {
-    try { return JSON.parse(localStorage.getItem('sb_session')); } catch { return null; }
-  }
-
-  // ── Screen management ─────────────────────────────────────────
 
   function showScreen(id) {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -349,33 +350,26 @@
 
   function showError(id, msg) {
     const el = document.getElementById(id);
-    el.textContent = msg;
-    el.style.display = 'block';
+    el.textContent = msg; el.style.display = 'block';
+    setTimeout(() => el.style.display = 'none', 4000);
   }
 
-  function hideError(id) {
-    document.getElementById(id).style.display = 'none';
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
 
-  // ── Register ──────────────────────────────────────────────────
+  // ── Auth ──────────────────────────────────────────────────────
 
   async function register() {
-    hideError('reg-error');
     const email = document.getElementById('reg-email').value.trim();
-    const pw = document.getElementById('reg-password').value;
-    const pw2 = document.getElementById('reg-password2').value;
-
+    const pw    = document.getElementById('reg-password').value;
+    const pw2   = document.getElementById('reg-password2').value;
     if (!email || !pw) return showError('reg-error', 'E-posta ve şifre zorunludur.');
     if (pw.length < 6) return showError('reg-error', 'Şifre en az 6 karakter olmalıdır.');
-    if (pw !== pw2) return showError('reg-error', 'Şifreler eşleşmiyor.');
+    if (pw !== pw2)    return showError('reg-error', 'Şifreler eşleşmiyor.');
 
-    const res = await fetch(`${SUPABASE_URL}/auth/v1/signup`, {
-      method: 'POST',
-      headers: authHeaders(),
-      body: JSON.stringify({ email, password: pw })
-    });
+    const res  = await fetch(`${SUPABASE_URL}/auth/v1/signup`, { method: 'POST', headers: anonH(), body: JSON.stringify({ email, password: pw }) });
     const data = await res.json();
-
     if (!res.ok) return showError('reg-error', data.msg || data.message || 'Kayıt başarısız.');
 
     pendingEmail = email;
@@ -383,20 +377,12 @@
     showScreen('screen-otp');
   }
 
-  // ── OTP Verify ────────────────────────────────────────────────
-
   async function verifyOtp() {
-    hideError('otp-error');
     const token = document.getElementById('otp-code').value.trim();
     if (token.length !== 6) return showError('otp-error', '6 haneli kodu eksiksiz girin.');
 
-    const res = await fetch(`${SUPABASE_URL}/auth/v1/verify`, {
-      method: 'POST',
-      headers: authHeaders(),
-      body: JSON.stringify({ type: 'signup', email: pendingEmail, token })
-    });
+    const res  = await fetch(`${SUPABASE_URL}/auth/v1/verify`, { method: 'POST', headers: anonH(), body: JSON.stringify({ type: 'signup', email: pendingEmail, token }) });
     const data = await res.json();
-
     if (!res.ok) return showError('otp-error', data.msg || data.message || 'Kod hatalı veya süresi dolmuş.');
 
     saveSession(data);
@@ -405,77 +391,129 @@
 
   async function resendOtp() {
     if (!pendingEmail) return;
-    await fetch(`${SUPABASE_URL}/auth/v1/resend`, {
-      method: 'POST',
-      headers: authHeaders(),
-      body: JSON.stringify({ type: 'signup', email: pendingEmail })
-    });
+    await fetch(`${SUPABASE_URL}/auth/v1/resend`, { method: 'POST', headers: anonH(), body: JSON.stringify({ type: 'signup', email: pendingEmail }) });
     document.getElementById('otp-code').value = '';
-    hideError('otp-error');
     alert('Kod tekrar gönderildi.');
   }
 
-  // ── Login ─────────────────────────────────────────────────────
-
   async function login() {
-    hideError('login-error');
     const email = document.getElementById('login-email').value.trim();
-    const pw = document.getElementById('login-password').value;
+    const pw    = document.getElementById('login-password').value;
     if (!email || !pw) return showError('login-error', 'E-posta ve şifre zorunludur.');
 
-    const res = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
-      method: 'POST',
-      headers: authHeaders(),
-      body: JSON.stringify({ email, password: pw })
-    });
+    const res  = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, { method: 'POST', headers: anonH(), body: JSON.stringify({ email, password: pw }) });
     const data = await res.json();
-
-    if (!res.ok) {
-      const msg = data.error_description || data.msg || data.message || 'Giriş başarısız.';
-      return showError('login-error', msg);
-    }
+    if (!res.ok) return showError('login-error', data.error_description || data.msg || 'Giriş başarısız.');
 
     saveSession(data);
     enterApp();
   }
 
-  // ── Logout ────────────────────────────────────────────────────
-
   async function logout() {
-    if (session?.access_token) {
-      await fetch(`${SUPABASE_URL}/auth/v1/logout`, {
-        method: 'POST',
-        headers: authHeaders(session.access_token)
-      });
-    }
+    if (session?.access_token) await fetch(`${SUPABASE_URL}/auth/v1/logout`, { method: 'POST', headers: authH() });
     saveSession(null);
-    todos = [];
+    todos = []; categories = [];
     showScreen('screen-login');
   }
 
-  // ── App entry ─────────────────────────────────────────────────
-
-  function enterApp() {
+  async function enterApp() {
     document.getElementById('user-email-label').textContent = session?.user?.email || '';
-    showScreen('screen-todo');
-    fetchTodos();
+    showScreen('screen-app');
+    await Promise.all([fetchCategories(), fetchTodos()]);
   }
 
-  // ── Todo REST API ─────────────────────────────────────────────
+  // ── Tabs ──────────────────────────────────────────────────────
 
-  function todoHeaders() {
-    return {
-      'apikey': ANON_KEY,
-      'Authorization': `Bearer ${session.access_token}`,
-      'Content-Type': 'application/json',
-      'Prefer': 'return=representation'
-    };
+  function switchTab(tab) {
+    document.getElementById('panel-todos').style.display = tab === 'todos' ? '' : 'none';
+    document.getElementById('panel-cats').style.display  = tab === 'cats'  ? '' : 'none';
+    document.getElementById('tab-todos').classList.toggle('active', tab === 'todos');
+    document.getElementById('tab-cats').classList.toggle('active', tab === 'cats');
   }
+
+  // ── Categories ────────────────────────────────────────────────
+
+  async function fetchCategories() {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/categories?order=created_at.asc`, { headers: authH() });
+    if (!res.ok) return;
+    categories = await res.json();
+    renderCategories();
+    renderCatSelect();
+    renderCatFilters();
+  }
+
+  async function addCategory() {
+    const name  = document.getElementById('cat-name-input').value.trim();
+    const color = document.getElementById('cat-color-input').value;
+    if (!name) return showError('cat-error', 'Kategori adı boş olamaz.');
+
+    const res  = await fetch(`${SUPABASE_URL}/rest/v1/categories`, { method: 'POST', headers: authH(), body: JSON.stringify({ name, color, user_id: session.user.id }) });
+    if (!res.ok) return showError('cat-error', 'Kategori eklenemedi.');
+    const [cat] = await res.json();
+    categories.push(cat);
+    document.getElementById('cat-name-input').value = '';
+    renderCategories();
+    renderCatSelect();
+    renderCatFilters();
+  }
+
+  async function deleteCategory(id) {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/categories?id=eq.${id}`, { method: 'DELETE', headers: authH({ 'Prefer': '' }) });
+    if (!res.ok) return showError('cat-error', 'Silinemedi.');
+    categories = categories.filter(c => c.id !== id);
+    todos.forEach(t => { if (t.category_id === id) t.category_id = null; });
+    if (catFilter === id) catFilter = null;
+    renderCategories();
+    renderCatSelect();
+    renderCatFilters();
+    render();
+  }
+
+  function renderCategories() {
+    const list = document.getElementById('catList');
+    if (categories.length === 0) {
+      list.innerHTML = '<li class="empty">Henüz kategori yok</li>';
+      return;
+    }
+    list.innerHTML = categories.map(c => {
+      const count = todos.filter(t => t.category_id === c.id).length;
+      return `<li class="cat-item">
+        <span class="cat-dot" style="background:${c.color}"></span>
+        <span class="cat-name">${escHtml(c.name)}</span>
+        <span class="cat-count">${count} görev</span>
+        <button class="cat-delete" onclick="deleteCategory(${c.id})">&#10005;</button>
+      </li>`;
+    }).join('');
+  }
+
+  function renderCatSelect() {
+    const sel = document.getElementById('todo-cat-select');
+    const cur = sel.value;
+    sel.innerHTML = '<option value="">Kategori yok</option>' +
+      categories.map(c => `<option value="${c.id}">${escHtml(c.name)}</option>`).join('');
+    sel.value = cur;
+  }
+
+  function renderCatFilters() {
+    const container = document.getElementById('cat-filters');
+    const allActive = catFilter === null;
+    container.innerHTML = `<button class="filter-btn${allActive ? ' active' : ''}" style="${allActive ? 'background:#6c63ff;color:#fff;border-color:#6c63ff;' : ''}" onclick="setCatFilter(null, this)">Tümü</button>` +
+      categories.map(c => {
+        const active = catFilter === c.id;
+        return `<button class="filter-btn${active ? ' active' : ''}" style="${active ? `background:${c.color};color:#fff;border-color:${c.color};` : ''}" onclick="setCatFilter(${c.id}, this)">${escHtml(c.name)}</button>`;
+      }).join('');
+  }
+
+  function setCatFilter(id, btn) {
+    catFilter = id;
+    renderCatFilters();
+    render();
+  }
+
+  // ── Todos ─────────────────────────────────────────────────────
 
   async function fetchTodos() {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/todos?order=created_at.desc`, {
-      headers: todoHeaders()
-    });
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/todos?order=created_at.desc`, { headers: authH() });
     if (!res.ok) { showError('todo-error', 'Görevler yüklenemedi.'); return; }
     todos = await res.json();
     render();
@@ -483,18 +521,20 @@
 
   async function addTodo() {
     const input = document.getElementById('todoInput');
-    const text = input.value.trim();
+    const text  = input.value.trim();
     if (!text) return;
+    const catVal = document.getElementById('todo-cat-select').value;
+    const category_id = catVal ? parseInt(catVal) : null;
     input.value = '';
 
     const res = await fetch(`${SUPABASE_URL}/rest/v1/todos`, {
-      method: 'POST',
-      headers: todoHeaders(),
-      body: JSON.stringify({ text, done: false, user_id: session.user.id })
+      method: 'POST', headers: authH(),
+      body: JSON.stringify({ text, done: false, user_id: session.user.id, category_id })
     });
     if (!res.ok) { showError('todo-error', 'Görev eklenemedi.'); return; }
     const [created] = await res.json();
     todos.unshift(created);
+    renderCategories();
     render();
   }
 
@@ -503,9 +543,7 @@
     if (!todo) return;
     const newDone = !todo.done;
     const res = await fetch(`${SUPABASE_URL}/rest/v1/todos?id=eq.${id}`, {
-      method: 'PATCH',
-      headers: todoHeaders(),
-      body: JSON.stringify({ done: newDone })
+      method: 'PATCH', headers: authH(), body: JSON.stringify({ done: newDone })
     });
     if (!res.ok) { showError('todo-error', 'Güncelleme başarısız.'); return; }
     todo.done = newDone;
@@ -513,76 +551,72 @@
   }
 
   async function remove(id) {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/todos?id=eq.${id}`, {
-      method: 'DELETE',
-      headers: { ...todoHeaders(), 'Prefer': '' }
-    });
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/todos?id=eq.${id}`, { method: 'DELETE', headers: authH({ 'Prefer': '' }) });
     if (!res.ok) { showError('todo-error', 'Silme başarısız.'); return; }
     todos = todos.filter(t => t.id !== id);
+    renderCategories();
     render();
   }
 
   async function clearDone() {
     if (!todos.some(t => t.done)) return;
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/todos?done=eq.true&user_id=eq.${session.user.id}`, {
-      method: 'DELETE',
-      headers: { ...todoHeaders(), 'Prefer': '' }
-    });
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/todos?done=eq.true&user_id=eq.${session.user.id}`, { method: 'DELETE', headers: authH({ 'Prefer': '' }) });
     if (!res.ok) { showError('todo-error', 'Silme başarısız.'); return; }
     todos = todos.filter(t => !t.done);
+    renderCategories();
     render();
   }
 
-  function setFilter(f, btn) {
-    filter = f;
-    document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+  function setStatusFilter(f, btn) {
+    statusFilter = f;
+    ['all','active','done'].forEach(x => {
+      const b = document.getElementById(`f-${x}`);
+      b.classList.toggle('active', x === f);
+      b.style.background = x === f ? '#6c63ff' : '';
+      b.style.color = x === f ? '#fff' : '';
+      b.style.borderColor = x === f ? '#6c63ff' : '';
+    });
     render();
-  }
-
-  function escHtml(str) {
-    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
 
   function render() {
     const list = document.getElementById('todoList');
-    const filtered = todos.filter(t =>
-      filter === 'all' ? true : filter === 'active' ? !t.done : t.done
-    );
+    let filtered = todos;
+
+    if (catFilter !== null) filtered = filtered.filter(t => t.category_id === catFilter);
+    if (statusFilter === 'active') filtered = filtered.filter(t => !t.done);
+    if (statusFilter === 'done')   filtered = filtered.filter(t => t.done);
 
     if (filtered.length === 0) {
       list.innerHTML = '<li class="empty">Görev yok</li>';
     } else {
-      list.innerHTML = filtered.map(t => `
-        <li class="${t.done ? 'done' : ''}">
+      list.innerHTML = filtered.map(t => {
+        const cat = categories.find(c => c.id === t.category_id);
+        const tag = cat ? `<span class="tag-pill" style="background:${cat.color}">${escHtml(cat.name)}</span>` : '';
+        return `<li class="${t.done ? 'done' : ''}">
           <input type="checkbox" ${t.done ? 'checked' : ''} onchange="toggle(${t.id})">
-          <span>${escHtml(t.text)}</span>
-          <button class="delete" onclick="remove(${t.id})">&#10005;</button>
-        </li>
-      `).join('');
+          <span class="todo-text">${escHtml(t.text)}</span>
+          ${tag}
+          <button class="delete-btn" onclick="remove(${t.id})">&#10005;</button>
+        </li>`;
+      }).join('');
     }
 
     const remaining = todos.filter(t => !t.done).length;
     document.getElementById('countLabel').textContent = `${remaining} görev kaldı`;
   }
 
-  document.getElementById('todoInput').addEventListener('keydown', e => {
-    if (e.key === 'Enter') addTodo();
-  });
-
-  document.getElementById('otp-code').addEventListener('input', e => {
-    e.target.value = e.target.value.replace(/\D/g, '');
-  });
+  document.getElementById('todoInput').addEventListener('keydown', e => { if (e.key === 'Enter') addTodo(); });
+  document.getElementById('cat-name-input').addEventListener('keydown', e => { if (e.key === 'Enter') addCategory(); });
+  document.getElementById('otp-code').addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, ''); });
 
   // ── Init ──────────────────────────────────────────────────────
 
-  const saved = loadSession();
-  if (saved?.access_token) {
-    session = saved;
-    enterApp();
-  } else {
-    showScreen('screen-login');
-  }
+  try {
+    const saved = JSON.parse(localStorage.getItem('sb_session'));
+    if (saved?.access_token) { session = saved; enterApp(); }
+    else showScreen('screen-login');
+  } catch { showScreen('screen-login'); }
 </script>
 </body>
 </html>
